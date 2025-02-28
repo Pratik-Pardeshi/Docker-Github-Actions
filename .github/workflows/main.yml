@@ -45,7 +45,7 @@ jobs:
       - name: Logout from Docker Hub
         run: docker logout
 
-      - name: Install SSH Client
+      - name: Install SSH Client and sshpass
         run: sudo apt-get install -y sshpass
 
       - name: Deploy to Server
