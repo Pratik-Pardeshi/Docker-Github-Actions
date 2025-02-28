@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: sreehariskumar/flaskapp:latest
+          tags: pratikp02/new1:tagname
           
       - name: deploying
         uses: appleboy/ssh-action@v0.1.8
@@ -37,7 +37,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            docker image pull sreehariskumar/flaskapp:latest
+            docker image pull pratikp02/new1:tagname
             docker container stop flask
             docker container rm flask
-            docker container run -d --name flask -p 80:5000 sreehariskumar/flaskapp
+            docker container run -d --name flask -p 80:5000 pratikp02/new1
