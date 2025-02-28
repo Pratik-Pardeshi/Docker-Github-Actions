@@ -3,7 +3,7 @@ name: Build and Deploy Docker Image
 on:
   push:
     branches:
-      - main  # Change to your branch if needed.
+      - main  # Adjust this to your default branch
 
 jobs:
   build-and-deploy:
@@ -45,8 +45,10 @@ jobs:
       - name: Logout from Docker Hub
         run: docker logout
 
-      - name: Install SSH Client and sshpass
-        run: sudo apt-get install -y sshpass
+      - name: Install sshpass
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass
 
       - name: Deploy to Server
         env:
